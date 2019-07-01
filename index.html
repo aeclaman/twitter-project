@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Indecision 2020</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.6/nv.d3.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center">
+        <h1 style="color:red">Indecision 2020</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="well">
+          <h5>SELECT a Candidate:</h5>
+          <select id="selDataset" onchange="optionChanged(this.value)"></select>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-8">
+        <div id="bullet-chart">
+          <svg></svg>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div id="chart_one" class="with-3d-shadow with-transitions">
+          <svg></svg></div>
+      </div>
+      <div class="col-md-8">
+        <div id="chart_two" class="with-3d-shadow with-transitions">
+          <svg></svg></div>
+
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-8">
+      <div id="chart_three" class="with-3d-shadow with-transitions">
+        <svg></svg>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div id="chart_four" class="with-3d-shadow with-transitions">
+        <svg></svg>
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.6/nv.d3.js"></script>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/candidateCharts.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/barCharts.js') }}"></script>
+
+</body>
+
+</html>

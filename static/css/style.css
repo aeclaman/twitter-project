@@ -1,0 +1,96 @@
+body {
+    background: url(images/image_two.jpg);
+    background-color: blue;
+}
+
+.jumbotron {
+    font-size: 0.1rem;
+    animation: title 1.2s forwards linear;
+    background: url(images/image.jpg);
+    color: red;
+}
+
+h1 {
+    animation: text-shadow 1.5s ease-in-out infinite;
+    font-size: 5em;
+    font-weight: 900;
+    line-height: 1;
+    color: red;
+}
+
+.nvd3 {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#chart_one {
+    height: 400px;
+    width: 100%;
+}
+
+#chart_two {
+    width: 100%;
+    background-color: #eeeeee;
+    margin: 20px;
+}
+
+#chart_two svg {
+    height: 400px;
+    width: 100%;
+}
+
+#chart_three {
+    width: 100%;
+    background-color: #eeeeee;
+}
+
+#chart_three svg {
+    height: 400px;
+    width: 100%;
+}
+
+#chart_four {
+    width: 100%;
+    background-color: #eeeeee;
+}
+
+#chart_four svg {
+    height: 400px;
+    width: 100%;
+}
+
+@media(max-width: 500px) {
+    .jumbotron h1 {
+        animation: smaller-title 1.2s forwards linear;
+        color: white;
+    }
+}
+
+@keyframes title {
+    from {
+        opacity: 0;
+    }
+    to {
+        font-size: 7.5rem;
+        opacity: 1;
+    }
+}
+
+@keyframes smaller-title {
+    from {
+        opacity: 0;
+    }
+    to {
+        font-size: 5.5rem;
+        opacity: 1;
+    }
+}
+
+@keyframes subtitle {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

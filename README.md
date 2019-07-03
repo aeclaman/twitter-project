@@ -1,6 +1,6 @@
-# Decision 2020  
 # A look at 2020 Presidential Candidate Twitter accounts
 
+https://aeclaman-twitter-project.herokuapp.com/
 
 This is a data visualization project which takes a look at the current 2020 presidential  
 candidates presence on twitter in terms of followers, retweets and 'liked' tweets (favorites).  
@@ -13,5 +13,5 @@ to build a dashboard plotting all findings. The app has been uploaded to Heroku 
 above link.
 
 
-
+Database currently contains tweets from Jan 1, 2019 - June 19, 2019.
 

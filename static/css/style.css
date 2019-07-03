@@ -1,13 +1,13 @@
 body {
-    background: url(images/image_two.jpg);
+    background: url(images/faded-flag.jpeg);
     background-color: blue;
 }
 
 .jumbotron {
     font-size: 0.1rem;
     animation: title 1.2s forwards linear;
-    background: url(images/image.jpg);
-    color: red;
+    background: url(images/twitter.png);
+    color: firebrick;
 }
 
 h1 {
@@ -15,7 +15,8 @@ h1 {
     font-size: 5em;
     font-weight: 900;
     line-height: 1;
-    color: red;
+    font-family: "Times New Roman", Times, serif;
+    color: firebrick;
 }
 
 .nvd3 {

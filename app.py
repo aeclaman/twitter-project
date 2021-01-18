@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, render_template
 from flask_pymongo import PyMongo
+import dns
 import os
 
 app = Flask(__name__)

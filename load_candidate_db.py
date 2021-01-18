@@ -7,16 +7,16 @@ import datetime
 # Twitter developer API key
 from config import consumer_key, consumer_secret, access_token, access_token_secret 
 #comment out this line for local db load
-# from config import MONGO_HOST, MONGO_PORT, MONGO_DB, MONGO_USER, MONGO_PASS
+#from config import MONGO_HOST, MONGO_PORT, MONGO_DB, MONGO_USER, MONGO_PASS
 
 
 def get_all_tweets(screen_name):
     # following code needed to load local db, then comment out lines 17-19
     client = MongoClient()
     db = client.db_twitter_handle
-    # con = pymongo.MongoClient(MONGO_HOST, MONGO_PORT)
-    # db = con[MONGO_DB]
-    # db.authenticate(MONGO_USER, MONGO_PASS)
+    #con = pymongo.MongoClient(MONGO_HOST, MONGO_PORT)
+    #db = con[MONGO_DB]
+    #db.authenticate(MONGO_USER, MONGO_PASS)
     col = "Tweets_from_"+screen_name
     tweets = db[col]
 
@@ -35,15 +35,19 @@ def get_all_tweets(screen_name):
     tweet_favorites = 0
     tweet_retweets = 0
     # utilized current year to grab tweets
-    current_year = datetime.datetime.now().year
+    #current_year = datetime.datetime.now().year
     # past_year = current_year - 4
+    startDate = datetime.datetime(2020, 6, 1, 0, 0, 0)
+    endDate =   datetime.datetime(2020, 11, 1, 0, 0, 0)
+
 
     page_count = 0
     for page in tweepy.Cursor(api.user_timeline, screen_name=screen_name, tweet_mode='extended', count=200).pages(100):
         page_count += 1
 
         for tweet in page:
-            if (tweet.created_at.year == current_year):
+            #if (tweet.created_at.year == current_year):
+            if tweet.created_at < endDate and tweet.created_at > startDate:
                 # add tweet to this candidate collection
                 tweets.insert_one(tweet._json)
                 # collect stats for this candidate to be added to a metadata collection
@@ -79,10 +83,14 @@ def add_to_metadata(candidateDictionary):
 
 
 # The Twitter users who we want to get tweets from
-candidates = ["@MichaelBennet", "@JoeBiden", "@BilldeBlasio", "@CoryBooker", "@GovernorBullock", "@PeteButtigieg",
-              "@JulianCastro", "@JohnDelaney", "@TulsiGabbard", "@SenGillibrand", "@MikeGravel", "@KamalaHarris", "@Hickenlooper",
-              "@JayInslee", "@amyklobuchar", "@WayneMessam", "@sethmoulton", "@BetoORourke", "@TimRyan", "@BernieSanders", "@ericswalwell",
-              "@realDonaldTrump", "@ewarren", "@GovBillWeld", "@marwilliamson", "@AndrewYang"]
+#candidates = ["@MichaelBennet", "@JoeBiden", "@BilldeBlasio", "@CoryBooker", "@GovernorBullock", "@PeteButtigieg",
+#              "@JulianCastro", "@JohnDelaney", "@TulsiGabbard", "@SenGillibrand", "@MikeGravel", "@KamalaHarris", "@Hickenlooper",
+#              "@JayInslee", "@amyklobuchar", "@WayneMessam", "@sethmoulton", "@BetoORourke", "@TimRyan", "@BernieSanders", "@ericswalwell",
+#              "@realDonaldTrump", "@ewarren", "@GovBillWeld", "@marwilliamson", "@AndrewYang"]
+candidates = ["@MichaelBennet", "@JoeBiden", "@CoryBooker", "@GovernorBullock", "@PeteButtigieg",
+              "@JulianCastro", "@JohnDelaney", "@TulsiGabbard", "@SenGillibrand",  "@KamalaHarris", 
+              "@JayInslee", "@amyklobuchar", "@WayneMessam", "@sethmoulton", "@BetoORourke", "@TimRyan", "@BernieSanders", 
+               "@ewarren", "@GovBillWeld", "@marwilliamson", "@AndrewYang"]
 
 for name in candidates:
     try:

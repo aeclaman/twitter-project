@@ -78,13 +78,13 @@ function buildCharts(chosenCandidate) {
         {
           key : "Likes" ,
           values : likesData,
-          color : "1f77b4"
+          color : "firebrick"//"1f77b4"
   
         },
         {
           key : "Retweets" ,
           values : retweetData,
-          color : "d62728"
+          color : "dodgerblue"//"d62728"
         }
       ];
   

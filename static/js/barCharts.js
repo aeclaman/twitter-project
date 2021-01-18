@@ -14,7 +14,8 @@ function buildBarChart(){
       data.forEach((item)=>{
         // not including Trump as his numbers are way off scale with other candidates
         // he will have his own chart; see trumpBarChart.js
-        if (item["name"] != "Donald J. Trump"){
+        //if (item["name"] != "Donald J. Trump"){
+        if (item["name"] != "Joe Biden"){
           retweetDictionary = 
             {
               label: item["name"],
@@ -47,12 +48,12 @@ function buildBarChart(){
       var nonTrumpData = [
         {
           key: "Likes",
-          color: "1f77b4",
+          color: "firebrick", //"1f77b4",
           values: favoriteList
         },
         {
           key: "Retweets",
-          color: "d62728",
+          color: "dodgerblue", //d62728",
           values: retweetList
         }
       ];
@@ -60,12 +61,12 @@ function buildBarChart(){
       var trumpData = [
         {
           key: "Likes",
-          color: "1f77b4",
+          color: "firebrick", //"1f77b4",
           values: trumpFavoriteList
         },
         {
           key: "Retweets",
-          color: "d62728",
+          color: "dodgerblue", //"d62728",
           values: trumpRetweetList
         }
       ];
